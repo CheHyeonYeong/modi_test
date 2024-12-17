@@ -1,6 +1,9 @@
-package com.example.modi;
+package com.example.modi.service;
 
 
+import com.example.modi.dto.MbtiDTO;
+import com.example.modi.dao.MbtiRepository;
+import com.example.modi.dao.MbtiResult;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

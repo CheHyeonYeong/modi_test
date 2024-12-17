@@ -1,4 +1,4 @@
-package com.example.modi;
+package com.example.modi.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,5 +1,6 @@
-package com.example.modi;
+package com.example.modi.dto;
 
+import com.example.modi.dao.MbtiResult;
 import lombok.*;
 
 @Data

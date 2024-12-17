@@ -1,8 +1,10 @@
-package com.example.modi;
+package com.example.modi.controller;
 
+import com.example.modi.dto.MbtiDTO;
+import com.example.modi.dao.MbtiResult;
+import com.example.modi.service.MbtiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @RestController
 @Log4j2
