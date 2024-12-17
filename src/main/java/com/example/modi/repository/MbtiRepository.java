@@ -1,5 +1,6 @@
-package com.example.modi.dao;
+package com.example.modi.repository;
 
+import com.example.modi.dao.MbtiResult;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MbtiRepository extends JpaRepository<MbtiResult, Long> {

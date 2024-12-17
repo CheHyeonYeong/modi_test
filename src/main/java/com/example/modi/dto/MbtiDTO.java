@@ -18,4 +18,5 @@ public class MbtiDTO { // DTO
     public MbtiResult toEntity() {
         return new MbtiResult(null, result, null);
     }
+
 }

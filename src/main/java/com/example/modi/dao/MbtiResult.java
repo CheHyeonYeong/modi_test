@@ -22,4 +22,8 @@ public class MbtiResult {
 
     @CreationTimestamp
     private Timestamp createDate;
+
+    public void updateMbti(String result){
+        this.result = result;
+    }
 }

@@ -2,11 +2,8 @@ package com.example.modi.service;
 
 
 import com.example.modi.dto.MbtiDTO;
-import com.example.modi.dao.MbtiRepository;
 import com.example.modi.dao.MbtiResult;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 @Service

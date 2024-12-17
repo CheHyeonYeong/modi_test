@@ -1,7 +1,7 @@
 package com.example.modi.service;
 
 
-import com.example.modi.dao.MbtiRepository;
+import com.example.modi.repository.MbtiRepository;
 import com.example.modi.dao.MbtiResult;
 import com.example.modi.dto.MbtiDTO;
 import jakarta.transaction.Transactional;
