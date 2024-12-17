@@ -3,7 +3,7 @@ package com.example.modi.service;
 import com.example.modi.dao.MbtiResult;
 import com.example.modi.dto.MbtiDTO;
 import com.example.modi.repository.MbtiRepository;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +19,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Log4j2
+@Slf4j
 @ExtendWith(MockitoExtension.class)
 public class MbtiServiceTests {
 
@@ -39,6 +39,7 @@ public class MbtiServiceTests {
                 "ESTP", "ESFP", "ENFP", "ENTP",
                 "ESTJ", "ESFJ", "ENFJ", "ENTJ"
         );
+        log.info("MBTI examples initialized: {}", mbtiExample);
     }
 
     @Test
@@ -49,6 +50,7 @@ public class MbtiServiceTests {
 
         // When
         String result = mbtiService.calResult(mbtiDto);
+        log.info("Calculated MBTI result: {}", result);
 
         // Then
         assertTrue(mbtiExample.contains(result));
@@ -65,6 +67,7 @@ public class MbtiServiceTests {
 
         // When
         mbtiService.save(mbtiResult);
+        log.info("Saved MBTI result: {}", mbtiResult);
 
         // Then
         verify(mbtiRepository, times(1)).save(any(MbtiResult.class));
@@ -77,6 +80,7 @@ public class MbtiServiceTests {
 
         // When
         long totalCount = mbtiService.getTotalCount();
+        log.info("Total MBTI count: {}", totalCount);
 
         // Then
         assertEquals(100L, totalCount);
@@ -91,6 +95,7 @@ public class MbtiServiceTests {
 
         // When
         long count = mbtiService.getCountByResult(mbtiType);
+        log.info("Count for MBTI type {}: {}", mbtiType, count);
 
         // Then
         assertEquals(10L, count);

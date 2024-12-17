@@ -4,9 +4,8 @@ import com.example.modi.repository.MbtiRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +14,7 @@ import java.util.stream.IntStream;
 
 
 // JUnit Test
-@Log4j2
+@Slf4j
 @SpringBootTest
 public class MbtiRepositoryTests {
 
@@ -48,8 +47,8 @@ public class MbtiRepositoryTests {
     public void testFindAll(){
         List<MbtiResult> mbtis = mbtiRepository.findAll();
         mbtis.forEach(mbti -> {
-            log.info(mbti.toString());
-        } );
+            log.info("MBTI Result: {}", mbti);
+        });
     }
 
     // Read
@@ -60,18 +59,15 @@ public class MbtiRepositoryTests {
         Optional<MbtiResult> result = mbtiRepository.findById(id);  //optional Type으로 받아서 처리해야 함
         MbtiResult mbtiResult = result.orElseThrow();
 
-        log.info(mbtiResult);
+        log.info("Selected MBTI: {}", mbtiResult);
     }
-
-
 
     // Read
     public void testSelect(Long id) {
-
         Optional<MbtiResult> result = mbtiRepository.findById(id);  //optional Type으로 받아서 처리해야 함
         MbtiResult mbtiResult = result.orElseThrow();
 
-        log.info(mbtiResult);
+        log.info("Selected MBTI: {}", mbtiResult);
     }
 
     // Update
@@ -79,7 +75,7 @@ public class MbtiRepositoryTests {
     public void testUpdate(){
         Long id = Math.abs(new Random().nextLong()) % 100L;  // 0 ~ 99 범위
 
-        log.info("Before Update : "+id );
+        log.info("Before Update - ID: {}", id);
         testSelect(id);
         Optional<MbtiResult> result = mbtiRepository.findById(id);
 
@@ -87,9 +83,8 @@ public class MbtiRepositoryTests {
         mbtiResult.updateMbti("update mbti");
 
         mbtiRepository.save(mbtiResult);
-        log.info("After Update : " + id);
+        log.info("After Update - ID: {}", id);
         testSelect(id);
-
     }
 
     // Delete
@@ -101,8 +96,6 @@ public class MbtiRepositoryTests {
         MbtiResult mbtiResult = result.orElseThrow();
 
         mbtiRepository.delete(mbtiResult);
+        log.info("Deleted MBTI with ID: {}", id);
     }
-
-
-
 }
